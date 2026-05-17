@@ -20,12 +20,12 @@ public:
     double getDuration() { return durationMin; }
     double getDistance() { return distanceKm; }
 
-    double getCalories()
+    double getCalories() const override
     {
         return durationMin * 8 + distanceKm * 50;
     }
 
-    string getSummary()
+    string getSummary() const override
     {
         return "Кардио: " + name +
                " | " + to_string((int)durationMin) + " мин" +

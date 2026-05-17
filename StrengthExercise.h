@@ -46,7 +46,7 @@ public:
         return max;
     }
 
-    double getCalories()
+    double getCalories() const override
     {
         double total = 0;
         for (int i = 0; i < sets.size(); i++)
@@ -56,7 +56,7 @@ public:
         return total * 0.1;
     }
 
-    string getSummary()
+    string getSummary() const override
     {
         string result = "Силово: " + name + "\n";
         for (int i = 0; i < sets.size(); i++)
