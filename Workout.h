@@ -28,7 +28,7 @@ public:
         exercises.push_back(ex);
     }
 
-    double getTotalCalories()
+    double getTotalCalories() const
     {
         double total = 0;
         for (int i = 0; i < exercises.size(); i++)
@@ -38,7 +38,7 @@ public:
         return total;
     }
 
-    string getSummary()
+    string getSummary() const
     {
         string result = "Тренировка: " + date + "\n";
         for (int i = 0; i < exercises.size(); i++)
