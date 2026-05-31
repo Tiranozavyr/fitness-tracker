@@ -76,7 +76,7 @@ public:
         return maxPR;
     }
 
-    string comparePeriods(string week1, string week2)
+    string comparePeriods(const string &week1, const string &week2) const
     {
         int count1 = 0, count2 = 0;
         double cal1 = 0, cal2 = 0;
