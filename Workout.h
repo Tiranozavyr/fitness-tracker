@@ -4,7 +4,6 @@
 #include "Exercise.h"
 #include <vector>
 #include <string>
-using namespace std;
 
 class Workout
 {

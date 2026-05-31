@@ -2,26 +2,25 @@
 #define GOAL_H
 
 #include <string>
-using namespace std;
 
 class Goal
 {
 private:
-    string type;
+    std::string type;
     double targetValue;
-    string deadline;
+    std::string deadline;
 
 public:
-    Goal(string t, double val, string d)
+    Goal(const std::string& t, double val, const std::string& d)
     {
         type = t;
         targetValue = val;
         deadline = d;
     }
 
-    string getType() { return type; }
-    double getTarget() { return targetValue; }
-    string getDeadline() { return deadline; }
+    std::string getType() const { return type; }
+    double getTarget() const { return targetValue; }
+    std::string getDeadline() const { return deadline; }
 };
 
 #endif // GOAL_H
