@@ -34,7 +34,7 @@ public:
         goals.push_back(g);
     }
 
-    string getWeeklySummary(string week)
+    string getWeeklySummary(const string &week) const
     {
         string result = "=== Седмица " + week + " ===\n";
         int count = 0;
@@ -55,7 +55,7 @@ public:
         return result;
     }
 
-    double getPersonalRecord(string exerciseName)
+    double getPersonalRecord(const string &exerciseName) const
     {
         double maxPR = 0;
         for (int i = 0; i < workouts.size(); i++)
