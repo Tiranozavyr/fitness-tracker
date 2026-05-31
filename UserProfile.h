@@ -15,14 +15,14 @@ private:
     vector<Goal> goals;
 
 public:
-    UserProfile(string n)
+    UserProfile(const string &n)
     {
         name = n;
     }
 
-    string getName() { return name; }
-    vector<Workout> getWorkouts() { return workouts; }
-    vector<Goal> getGoals() { return goals; }
+    string getName() const { return name; }
+    vector<Workout> getWorkouts() const { return workouts; }
+    vector<Goal> getGoals() const { return goals; }
 
     void addWorkout(Workout w)
     {
