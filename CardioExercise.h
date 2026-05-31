@@ -10,15 +10,15 @@ private:
     double distanceKm;
 
 public:
-    CardioExercise(string n, string d, double dur, double dist)
+    CardioExercise(const string &n, const string &d, double dur, double dist)
         : Exercise(n, d)
     {
         durationMin = dur;
         distanceKm = dist;
     }
 
-    double getDuration() { return durationMin; }
-    double getDistance() { return distanceKm; }
+    double getDuration() const { return durationMin; }
+    double getDistance() const { return distanceKm; }
 
     double getCalories() const override
     {
