@@ -13,15 +13,15 @@ private:
     vector<Exercise *> exercises;
 
 public:
-    Workout(string d, string n = "")
+    Workout(const string &d, const string &n = "")
     {
         date = d;
         notes = n;
     }
 
-    string getDate() { return date; }
-    string getNotes() { return notes; }
-    vector<Exercise *> getExercises() { return exercises; }
+    string getDate() const { return date; }
+    string getNotes() const { return notes; }
+    vector<Exercise *> getExercises() const { return exercises; }
 
     void addExercise(Exercise *ex)
     {
