@@ -3,24 +3,26 @@
 
 #include <string>
 
+using namespace std;
+
 class Goal
 {
 private:
-    std::string type;
+    string type;
     double targetValue;
-    std::string deadline;
+    string deadline;
 
 public:
-    Goal(const std::string& t, double val, const std::string& d)
+    Goal(const string &t, double val, const string &d)
     {
         type = t;
         targetValue = val;
         deadline = d;
     }
 
-    std::string getType() const { return type; }
+    string getType() const { return type; }
     double getTarget() const { return targetValue; }
-    std::string getDeadline() const { return deadline; }
+    string getDeadline() const { return deadline; }
 };
 
 #endif // GOAL_H
