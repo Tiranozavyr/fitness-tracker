@@ -11,11 +11,10 @@ private:
 
 public:
     CardioExercise(const string &n, const string &d, double dur, double dist)
-        : Exercise(n, d)
-    {
-        durationMin = dur;
-        distanceKm = dist;
-    }
+        : Exercise(n, d), durationMin(dur), distanceKm(dist) {}
+
+    void setDuration(double dur) { durationMin = dur; }
+    void setDistance(double dist) { distanceKm = dist; }
 
     double getDuration() const { return durationMin; }
     double getDistance() const { return distanceKm; }
@@ -24,6 +23,8 @@ public:
     {
         return durationMin * 8 + distanceKm * 50;
     }
+
+    Exercise* clone() const override { return new CardioExercise(*this); }
 
     string getSummary() const override
     {

@@ -13,20 +13,16 @@ private:
 public:
     StrengthExercise(const string &n, const string &d) : Exercise(n, d) {}
 
-    vector<Set> getSets() const { return sets; }
-
-    void addSet(int reps, double weight)
+    void addSet(Set s)
     {
-        Set s(reps, weight);
-
         double maxSoFar = 0;
-        for (int i = 0; i < sets.size(); i++)
+        for (size_t i = 0; i < sets.size(); i++)
         {
             if (sets[i].getWeight() > maxSoFar)
                 maxSoFar = sets[i].getWeight();
         }
 
-        if (weight > maxSoFar)
+        if (!sets.empty() && s.getWeight() > maxSoFar)
         {
             s.setIsPR(true);
         }
@@ -34,10 +30,23 @@ public:
         sets.push_back(s);
     }
 
+    vector<Set> &getSets() { return sets; }
+    const vector<Set> &getSets() const { return sets; }
+
+    double getVolume() const override
+    {
+        double vol = 0;
+        for (size_t i = 0; i < sets.size(); i++)
+        {
+            vol += sets[i].getWeight() * sets[i].getReps();
+        }
+        return vol;
+    }
+
     double getMaxWeight() const
     {
         double max = 0;
-        for (int i = 0; i < sets.size(); i++)
+        for (size_t i = 0; i < sets.size(); i++)
         {
             if (sets[i].getWeight() > max)
                 max = sets[i].getWeight();
@@ -48,17 +57,19 @@ public:
     double getCalories() const override
     {
         double total = 0;
-        for (int i = 0; i < sets.size(); i++)
+        for (size_t i = 0; i < sets.size(); i++)
         {
             total += sets[i].getWeight() * sets[i].getReps();
         }
         return total * 0.1;
     }
 
+    Exercise* clone() const override { return new StrengthExercise(*this); }
+
     string getSummary() const override
     {
         string result = "Силово: " + name + "\n";
-        for (int i = 0; i < sets.size(); i++)
+        for (size_t i = 0; i < sets.size(); i++)
         {
             result += "  Серия " + to_string(i + 1) + ": ";
             result += to_string(sets[i].getReps()) + " повт x ";
