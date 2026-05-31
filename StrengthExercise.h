@@ -11,9 +11,9 @@ private:
     vector<Set> sets;
 
 public:
-    StrengthExercise(string n, string d) : Exercise(n, d) {}
+    StrengthExercise(const string &n, const string &d) : Exercise(n, d) {}
 
-    vector<Set> getSets() { return sets; }
+    vector<Set> getSets() const { return sets; }
 
     void addSet(int reps, double weight)
     {
