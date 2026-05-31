@@ -34,7 +34,7 @@ public:
         sets.push_back(s);
     }
 
-    double getMaxWeight()
+    double getMaxWeight() const
     {
         double max = 0;
         for (int i = 0; i < sets.size(); i++)
