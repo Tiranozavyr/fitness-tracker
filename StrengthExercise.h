@@ -4,7 +4,6 @@
 #include "Exercise.h"
 #include "Set.h"
 #include <vector>
-using namespace std;
 
 class StrengthExercise : public Exercise
 {
